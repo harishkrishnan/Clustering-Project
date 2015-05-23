@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Hierarchical Clustering - A Demonstration</title>
+  <title> Hierarchical Clustering - A Demonstration</title>
     
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -749,7 +749,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>Hierarchical Clustering - A Demonstration</h1><p>Harish Krishnan<br/>22&#x2F;05&#x2F;2015</p>
+<h1> Hierarchical Clustering - A Demonstration</h1><p>Harish Krishnan<br/>22&#x2F;05&#x2F;2015</p>
 
 <div class="slideContent" >
 
@@ -761,6 +761,12 @@ hljs.initHighlightingOnLoad();
 <div class="slideContent" >
 <p>Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense or another) to each other than to those in other groups (clusters). It is a main task of exploratory data mining, and a common technique for statistical data analysis, used in many fields, including machine learning, pattern recognition, image analysis, information retrieval, and bioinformatics</p>
 
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>What is Hierarchical Clustering?</h3>
+<div class="slideContent" >
 <ul>
 <li>Hierarchical clustering is a widely used data analysis tool</li>
 <li>The idea is to build a binary tree of the data that successively
@@ -776,9 +782,20 @@ merges similar groups of points</li>
 <div class="slideContent" >
 <p>For this app, I have used the iris data set(first 50 observations only, for the sake of clarity). The clustering is done by calculating the distances between the pair of attributes that the user chooses and clustering them based on their distances from each other.</p>
 
-<pre><code class="r">    hclusters &lt;- reactive({
-    distance &lt;- dist(selectedData(),method=&quot;euclidean&quot;)
-    hclust(distance, method = &quot;ward.D&quot;)
+<p>The associated R code for clustering alone is given below</p>
+
+<pre><code class="r">distance &lt;- dist(iris[1:50,1],iris[1:50,1],
+                     method=&quot;euclidean&quot;)
+hclust(distance, method = &quot;ward.D&quot;)
+</code></pre>
+
+<pre><code>
+Call:
+hclust(d = distance, method = &quot;ward.D&quot;)
+
+Cluster method   : ward.D 
+Distance         : euclidean 
+Number of objects: 50 
 </code></pre>
 
 </div>

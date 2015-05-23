@@ -1,4 +1,4 @@
-Hierarchical Clustering - A Demonstration
+ Hierarchical Clustering - A Demonstration
 ========================================================
 author: Harish Krishnan
 date: 22/05/2015
@@ -7,7 +7,11 @@ Clustering
 ========================================================
 
 Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense or another) to each other than to those in other groups (clusters). It is a main task of exploratory data mining, and a common technique for statistical data analysis, used in many fields, including machine learning, pattern recognition, image analysis, information retrieval, and bioinformatics
-                                            
+
+What is Hierarchical Clustering?
+========================================================
+
+
 - Hierarchical clustering is a widely used data analysis tool
 - The idea is to build a binary tree of the data that successively
 merges similar groups of points
@@ -17,11 +21,13 @@ Demonstration
 ========================================================
 For this app, I have used the iris data set(first 50 observations only, for the sake of clarity). The clustering is done by calculating the distances between the pair of attributes that the user chooses and clustering them based on their distances from each other.
 
+The associated R code for clustering alone is given below
 
-```{r,eval = FALSE}
-    hclusters <- reactive({
-    distance <- dist(selectedData(),method="euclidean")
-    hclust(distance, method = "ward.D")
+```{r}
+    
+distance <- dist(iris[1:50,1],iris[1:50,1],
+                     method="euclidean")
+hclust(distance, method = "ward.D")
 ```
 
 Using the App
